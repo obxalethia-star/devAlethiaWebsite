@@ -34,9 +34,9 @@ export const Footer = () => {
           <div className="md:col-span-1 space-y-4">
             <div className="flex items-center gap-2.5">
               <img
-                src="/devalethia-logo.png"
+                src="/OBXAlethia-TestLogoA2-02.png"
                 alt="DevAlethia logo"
-                className="h-8 w-8 object-contain"
+                className="h-10 w-10 object-contain"
               />
               <span className="font-display font-bold text-xl tracking-tight">
                 Dev<span className="text-gradient">Alethia</span>
