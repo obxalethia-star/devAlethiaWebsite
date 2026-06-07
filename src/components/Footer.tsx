@@ -55,7 +55,7 @@ export const Footer = () => {
             <div className="space-y-2 pt-2">
               <a href="mailto:obxalethia@gmail.com" className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors group">
                 <Mail className="w-3.5 h-3.5 text-violet" />
-                obxalethia@gmail.com
+                admin@obxalethia.art
                 <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
               <a href="https://dev.obxalethia.art" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors group">

@@ -61,7 +61,7 @@ export const Contact = () => {
               <h3 className="font-display text-lg font-bold">Reach Us Directly</h3>
               {[
                 { icon: Globe,          label: "Website",   value: "dev.obxalethia.art",     href: "https://dev.obxalethia.art" },
-                { icon: Mail,           label: "Email",     value: "obxalethia@gmail.com",   href: "mailto:obxalethia@gmail.com" },
+                { icon: Mail,           label: "Email",     value: "admin@obxalethia.art",   href: "mailto:admin@obxalethia.art" },
                 { icon: MessageCircle,  label: "WhatsApp",  value: "Available via chatbot",  href: "#" },
               ].map(({ icon: Icon, label, value, href }) => (
                 <a

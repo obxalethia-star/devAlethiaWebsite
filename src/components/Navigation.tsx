@@ -56,10 +56,10 @@ export const Navigation = () => {
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="mailto:obxalethia@gmail.com"
+              href="mailto:admin@obxalethia.art"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              obxalethia@gmail.com
+              admin@obxalethia.art
             </a>
             <Button
               id="nav-cta"
