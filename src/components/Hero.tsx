@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Globe, Bot, TrendingUp, Search } from "lucide-react";
+import { ROUTES } from "@/lib/routes";
 
 const pills = [
   { icon: Globe, label: "Smart Websites" },
@@ -15,6 +17,8 @@ const stats = [
 ];
 
 export const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center pt-20 pb-16 overflow-hidden">
 
@@ -71,7 +75,7 @@ export const Hero = () => {
               id="hero-cta-primary"
               size="lg"
               className="bg-violet hover:bg-violet/90 text-white font-semibold px-8 h-12 rounded-xl glow-violet group transition-all duration-200"
-              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => navigate(ROUTES.pricing)}
             >
               View Packages & Pricing
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -81,7 +85,7 @@ export const Hero = () => {
               size="lg"
               variant="outline"
               className="border-border hover:border-violet/40 hover:bg-violet/5 font-semibold px-8 h-12 rounded-xl transition-all duration-200"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => navigate(ROUTES.contact)}
             >
               Book a Free Consultation
             </Button>

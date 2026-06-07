@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, Zap, Rocket, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ROUTES } from "@/lib/routes";
 
 const packages = [
   {
@@ -97,6 +99,8 @@ const colorMap: Record<string, {
 };
 
 export const Features = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="pricing" className="py-28 relative">
       <div className="section-divider absolute top-0 left-0 right-0" />
@@ -178,7 +182,7 @@ export const Features = () => {
                 <Button
                   id={`pkg-cta-${pkg.id}`}
                   className={`w-full h-11 font-semibold rounded-xl ${c.btnBg} transition-all duration-200`}
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => navigate(ROUTES.contact)}
                 >
                   {pkg.cta}
                 </Button>

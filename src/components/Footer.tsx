@@ -1,22 +1,24 @@
+import { Link } from "react-router-dom";
 import { Mail, Globe, ArrowUpRight } from "lucide-react";
+import { ROUTES } from "@/lib/routes";
 
 const footerLinks = {
   Services: [
-    { label: "Website Design",   href: "#services"  },
-    { label: "SEO Strategy",     href: "#services"  },
-    { label: "AI Chatbots",      href: "#services"  },
-    { label: "Lead Generation",  href: "#services"  },
+    { label: "Website Design", to: ROUTES.services },
+    { label: "SEO Strategy", to: ROUTES.services },
+    { label: "AI Chatbots", to: ROUTES.services },
+    { label: "Lead Generation", to: ROUTES.services },
   ],
   Company: [
-    { label: "About Us",         href: "#services"  },
-    { label: "Pricing",          href: "#pricing"   },
-    { label: "Our Process",      href: "#process"   },
-    { label: "Retainer Plans",   href: "#retainers" },
+    { label: "About Us", to: ROUTES.services },
+    { label: "Pricing", to: ROUTES.pricing },
+    { label: "Our Process", to: ROUTES.process },
+    { label: "Retainer Plans", to: ROUTES.retainers },
   ],
   Contact: [
-    { label: "Get in Touch",     href: "#contact"   },
+    { label: "Get in Touch", to: ROUTES.contact },
     { label: "obxalethia@gmail.com", href: "mailto:obxalethia@gmail.com" },
-    { label: "dev.obxalethia.art",   href: "https://dev.obxalethia.art" },
+    { label: "dev.obxalethia.art", href: "https://dev.obxalethia.art" },
   ],
 };
 
@@ -32,7 +34,7 @@ export const Footer = () => {
 
           {/* Brand column */}
           <div className="md:col-span-1 space-y-4">
-            <div className="flex items-center gap-2.5">
+            <Link to={ROUTES.home} className="flex items-center gap-2.5">
               <img
                 src="/OBXAlethia-TestLogoA2-02.png"
                 alt="DevAlethia logo"
@@ -41,7 +43,7 @@ export const Footer = () => {
               <span className="font-display font-bold text-xl tracking-tight">
                 Dev<span className="text-gradient">Alethia</span>
               </span>
-            </div>
+            </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
               Smart Websites. Real Results. Empowering South African businesses through intelligent digital presence.
             </p>
@@ -69,14 +71,23 @@ export const Footer = () => {
             <div key={section} className="space-y-4">
               <h4 className="text-sm font-semibold font-display text-foreground">{section}</h4>
               <ul className="space-y-2.5">
-                {links.map(({ label, href }) => (
-                  <li key={label}>
-                    <a
-                      href={href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {label}
-                    </a>
+                {links.map((link) => (
+                  <li key={link.label}>
+                    {"to" in link ? (
+                      <Link
+                        to={link.to}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

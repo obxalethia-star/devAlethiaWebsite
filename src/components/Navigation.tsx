@@ -1,18 +1,14 @@
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Zap } from "lucide-react";
-
-const navLinks = [
-  { label: "Services",  href: "#services"  },
-  { label: "Pricing",   href: "#pricing"   },
-  { label: "Process",   href: "#process"   },
-  { label: "Retainers", href: "#retainers" },
-  { label: "Contact",   href: "#contact"   },
-];
+import { NavLink } from "@/components/NavLink";
+import { navLinks, ROUTES } from "@/lib/routes";
 
 export const Navigation = () => {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -32,7 +28,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between">
 
           {/* Logo */}
-          <a href="#" className="flex items-center gap-1 group">
+          <Link to={ROUTES.home} className="flex items-center gap-1 group">
             <img
               src="/OBXAlethia-TestLogoA2-02.png"
               alt="DevAlethia logo"
@@ -41,18 +37,19 @@ export const Navigation = () => {
             <span className="font-display font-bold text-xl tracking-tight">
               Dev<span className="text-violet">Alethia</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
+              <NavLink
+                key={link.to}
+                to={link.to}
                 className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200"
+                activeClassName="text-foreground bg-white/5"
               >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
           </div>
 
@@ -68,7 +65,7 @@ export const Navigation = () => {
               id="nav-cta"
               size="sm"
               className="bg-violet hover:bg-violet/90 text-white font-medium rounded-lg px-5 glow-violet transition-all duration-200"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => navigate(ROUTES.contact)}
             >
               <Zap className="w-3.5 h-3.5 mr-1.5" />
               Get Started
@@ -92,14 +89,15 @@ export const Navigation = () => {
         <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl">
           <div className="container mx-auto px-6 py-4 space-y-1">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
+              <NavLink
+                key={link.to}
+                to={link.to}
                 onClick={() => setMenuOpen(false)}
                 className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-white/5 rounded-lg transition-all"
+                activeClassName="text-foreground bg-white/5"
               >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
             <div className="pt-3">
               <Button
@@ -107,7 +105,7 @@ export const Navigation = () => {
                 className="w-full bg-violet hover:bg-violet/90 text-white font-medium"
                 onClick={() => {
                   setMenuOpen(false);
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  navigate(ROUTES.contact);
                 }}
               >
                 Get Started Free
