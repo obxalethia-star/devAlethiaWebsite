@@ -19,7 +19,7 @@ const services = [
     id: "seo",
     icon: Search,
     color: "cyan",
-    title: "SEO Strategy",
+    title: "Digital Marketing & SEO Strategy",
     tagline: "Being found online is never an accident",
     bullets: [
       "Technical SEO, sitemaps & schema markup",
