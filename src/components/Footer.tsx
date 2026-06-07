@@ -41,7 +41,7 @@ export const Footer = () => {
                 className="h-10 w-10 object-contain"
               />
               <span className="font-display font-bold text-xl tracking-tight">
-                Dev<span className="text-gradient">Alethia</span>
+                Dev<span className="text-violet">Alethia</span>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
