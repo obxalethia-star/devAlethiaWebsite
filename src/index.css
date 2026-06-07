@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   DEVALETHIA — Design System
+   Dark, modern dev agency aesthetic
+   ============================================================ */
+
+@layer base {
+  :root {
+    /* Background scale */
+    --background:  220 20% 5%;
+    --foreground:  210 40% 98%;
+
+    --card:        220 20% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover:     220 20% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Brand: electric violet primary */
+    --primary:     262 83% 67%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Accent: cyan glow */
+    --accent-cyan: 189 100% 55%;
+
+    /* Secondary */
+    --secondary:   220 20% 13%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted:       220 20% 15%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent:      262 60% 40%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border:      220 20% 14%;
+    --input:       220 20% 14%;
+    --ring:        262 83% 67%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 20% 7%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 262 83% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 13%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 20% 14%;
+    --sidebar-ring: 262 83% 67%;
+
+    /* Custom brand tokens */
+    --violet: 262 83% 67%;
+    --cyan: 189 100% 55%;
+    --emerald: 158 64% 52%;
+    --amber: 38 92% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  code, .font-mono, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  ::selection {
+    background-color: hsl(var(--violet) / 0.35);
+    color: white;
+  }
+}
+
+/* ============================================================
+   Custom scrollbar
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(var(--background)); }
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--violet) / 0.4);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--violet) / 0.7); }
+
+/* ============================================================
+   Utility helpers
+   ============================================================ */
+@layer utilities {
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--violet)), hsl(var(--cyan)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-warm {
+    background: linear-gradient(135deg, hsl(var(--violet)), hsl(var(--amber)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow */
+  .glow-violet {
+    box-shadow: 0 0 24px hsl(var(--violet) / 0.35), 0 0 48px hsl(var(--violet) / 0.15);
+  }
+  .glow-cyan {
+    box-shadow: 0 0 24px hsl(var(--cyan) / 0.35), 0 0 48px hsl(var(--cyan) / 0.15);
+  }
+
+  /* Glass card */
+  .glass {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .glass-strong {
+    background: hsl(var(--card) / 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsl(var(--violet) / 0.15);
+  }
+
+  /* Noise texture overlay */
+  .noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Dot grid background */
+  .dot-grid {
+    background-image: radial-gradient(hsl(var(--violet) / 0.18) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Line grid background */
+  .line-grid {
+    background-image:
+      linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+}
+
+/* ============================================================
+   Animations
+   ============================================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-float        { animation: float 4s ease-in-out infinite; }
+.animate-pulse-glow   { animation: pulse-glow 2.5s ease-in-out infinite; }
+.animate-gradient-x   { animation: gradient-x 4s ease infinite; background-size: 200% 200%; }
+.animate-slide-up     { animation: slide-up 0.6s ease both; }
+.animate-slide-in-left{ animation: slide-in-left 0.6s ease both; }
+.animate-spin-slow    { animation: spin-slow 12s linear infinite; }
+.animate-marquee      { animation: marquee 30s linear infinite; }
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* ============================================================
+   Shimmer loading effect
+   ============================================================ */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, hsl(var(--violet) / 0.08) 50%, transparent 100%);
+  animation: shimmer 2.5s infinite;
+}
+
+/* ============================================================
+   Pricing card special style
+   ============================================================ */
+.pricing-popular {
+  background: linear-gradient(135deg, hsl(var(--violet) / 0.15), hsl(var(--cyan) / 0.08));
+  border-color: hsl(var(--violet) / 0.5) !important;
+  position: relative;
+}
+.pricing-popular::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, hsl(var(--violet)), hsl(var(--cyan)));
+  z-index: -1;
+  opacity: 0.35;
+}
+
+/* ============================================================
+   Section divider
+   ============================================================ */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--violet) / 0.4), hsl(var(--cyan) / 0.4), transparent);
+}
