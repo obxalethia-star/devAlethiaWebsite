@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  # The Web Frontend (Nginx serving React)
+  web:
+    build: .
+    restart: always
+    ports:
+      - "8080:80"
+
+  # The Cloudflare Tunnel (cloudflared)
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: always
+    command: tunnel run
+    environment:
+      # Replace this with your actual Cloudflare Tunnel token
+      - TUNNEL_TOKEN=eyJhIjoiMTg0ODg2ZDRhZGE0NjQ3MzJkZGNlZWU3MmQxNzk5M2EiLCJ0IjoiODIyYzNlMDItN2M4Zi00MjljLWFkZjAtNjM2NTQ0Y2ZhOGZiIiwicyI6IlptRTVNMlU0TnpRdE5USmpPUzAwWmpJMExUazFaRGN0WXpZMFlUbGpOR05tWldVeiJ9
