@@ -34,7 +34,7 @@ export const Footer = () => {
 
           {/* Brand column */}
           <div className="md:col-span-1 space-y-4">
-            <Link to={ROUTES.home} className="flex items-center gap-2.5">
+            <Link to={ROUTES.home} className="flex items-center gap-1">
               <img
                 src="/OBXAlethia-TestLogoA2-02.png"
                 alt="DevAlethia logo"
