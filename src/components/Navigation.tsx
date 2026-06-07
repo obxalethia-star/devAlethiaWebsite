@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Code2, Zap } from "lucide-react";
+import { Menu, X, Zap } from "lucide-react";
 
 const navLinks = [
   { label: "Services",  href: "#services"  },
@@ -32,13 +32,14 @@ export const Navigation = () => {
         <div className="flex items-center justify-between">
 
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 group">
-            <div className="relative w-8 h-8 flex items-center justify-center">
-              <div className="absolute inset-0 bg-violet/20 rounded-lg group-hover:bg-violet/30 transition-colors" />
-              <Code2 className="w-5 h-5 text-violet relative z-10" />
-            </div>
+          <a href="#" className="flex items-center gap-1 group">
+            <img
+              src="/OBXAlethia-TestLogoA2-02.png"
+              alt="DevAlethia logo"
+              className="h-10 w-10 object-contain"
+            />
             <span className="font-display font-bold text-xl tracking-tight">
-              Dev<span className="text-gradient">Alethia</span>
+              Dev<span className="text-violet">Alethia</span>
             </span>
           </a>
 

@@ -1,4 +1,4 @@
-import { Code2, Mail, Globe, ArrowUpRight } from "lucide-react";
+import { Mail, Globe, ArrowUpRight } from "lucide-react";
 
 const footerLinks = {
   Services: [
@@ -33,9 +33,11 @@ export const Footer = () => {
           {/* Brand column */}
           <div className="md:col-span-1 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 bg-violet/20 rounded-lg flex items-center justify-center">
-                <Code2 className="w-5 h-5 text-violet" />
-              </div>
+              <img
+                src="/devalethia-logo.png"
+                alt="DevAlethia logo"
+                className="h-8 w-8 object-contain"
+              />
               <span className="font-display font-bold text-xl tracking-tight">
                 Dev<span className="text-gradient">Alethia</span>
               </span>

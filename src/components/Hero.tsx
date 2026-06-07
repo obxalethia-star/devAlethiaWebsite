@@ -4,14 +4,14 @@ import { ArrowRight, Globe, Bot, TrendingUp, Search } from "lucide-react";
 const pills = [
   { icon: Globe, label: "Smart Websites" },
   { icon: Search, label: "SEO Strategies" },
-  { icon: Bot,    label: "AI Chatbots" },
+  { icon: Bot, label: "AI Chatbots" },
   { icon: TrendingUp, label: "Lead Generation" },
 ];
 
 const stats = [
-  { value: "R1,500",  label: "Starter from",       sub: "once-off"   },
-  { value: "100%",    label: "Mobile-first",        sub: "every build" },
-  { value: "30-day",  label: "Post-launch support", sub: "included"   },
+  { value: "R1,500", label: "Starter from", sub: "once-off" },
+  { value: "100%", label: "Mobile-first", sub: "every build" },
+  { value: "30-day", label: "Post-launch support", sub: "included" },
 ];
 
 export const Hero = () => {
@@ -34,7 +34,7 @@ export const Hero = () => {
           {/* Eyebrow badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-violet/25 text-sm font-medium text-violet mb-8 animate-slide-up">
             <span className="w-2 h-2 rounded-full bg-emerald animate-pulse" />
-            South African Digital Agency · Est. 2024
+            Development Solutions Division of OBX Alethia Est.2026
           </div>
 
           {/* Headline */}
