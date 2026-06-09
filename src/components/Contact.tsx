@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Globe, MessageCircle, Send, CheckCircle2 } from "lucide-react";
+import { toast } from "sonner";
+import { PACKAGE_OPTIONS } from "@/lib/packages";
+import { submitLead } from "@/lib/submitLead";
 
 const whyUs = [
   "We build for results, not just aesthetics",
@@ -20,11 +23,19 @@ export const Contact = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate async
-    setTimeout(() => { setLoading(false); setSent(true); }, 1200);
+
+    try {
+      await submitLead(form);
+      setSent(true);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Something went wrong. Please try again.";
+      toast.error("Could not send your message", { description: message });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -179,12 +190,11 @@ export const Contact = () => {
                       onChange={handleChange}
                       className="w-full px-4 py-2.5 rounded-xl bg-secondary/60 border border-border focus:border-violet/50 focus:outline-none focus:ring-2 focus:ring-violet/20 text-sm text-foreground transition-all appearance-none"
                     >
-                      <option value="">Select a package...</option>
-                      <option value="starter">Starter — R1,500 once-off</option>
-                      <option value="growth">Growth — R5,000 once-off</option>
-                      <option value="enterprise">Enterprise — R10,000 once-off</option>
-                      <option value="retainer">Monthly Retainer</option>
-                      <option value="unsure">Not sure yet</option>
+                      {PACKAGE_OPTIONS.map((option) => (
+                        <option key={option.value || "default"} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
                     </select>
                   </div>
 

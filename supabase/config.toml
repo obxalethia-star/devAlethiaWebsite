@@ -1,0 +1,7 @@
+project_id = "ushbukjbvezfkfrrigph"
+
+[functions.submit-lead]
+verify_jwt = false
+
+[functions.notify-new-lead]
+verify_jwt = false
